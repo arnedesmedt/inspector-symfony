@@ -253,7 +253,6 @@ class KernelEventsSubscriber implements EventSubscriberInterface
             throw new \LogicException('Invalid exception event.');
         }
 
-        $this->startTransaction(get_class($exception))->setResult('error');
         $this->notifyUnexpectedError($exception);
     }
 
@@ -313,7 +312,7 @@ class KernelEventsSubscriber implements EventSubscriberInterface
 
     private function isMasterMainRequest(KernelEvent $event): bool
     {
-        return (method_exists($event, 'isMainRequest') && !$event->isMainRequest())
-        || (method_exists($event, 'isMasterRequest') && !$event->isMasterRequest());
+        return (method_exists($event, 'isMainRequest') && $event->isMainRequest())
+        || (method_exists($event, 'isMasterRequest') && $event->isMasterRequest());
     }
 }
