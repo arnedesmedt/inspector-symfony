@@ -1,5 +1,5 @@
 {
-    "name": "inspector-apm/inspector-symfony",
+    "name": "arnedesmedt/inspector-symfony",
     "description": "Code Execution Monitoring for Symfony applications.",
     "keywords": ["monitoring", "php", "inspector", "symfony", "bundle"],
     "homepage": "https://www.inspector.dev",
